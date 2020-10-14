@@ -1,0 +1,16 @@
+#! /usr/bin/expect
+
+set timeout 20
+set project [lindex $argv 0]
+set username [lindex $argv 1]
+set host [lindex $argv 2]
+set password [lindex $argv 3]  
+set project_path [lindex $argv 4] 
+set super_name [lindex $argv 5]
+
+spawn ssh -p 22 $username@$host "cd ${project_path}; cp ${project} ${project}.bak; mv -f ${project}_new ${project};  supervisorctl  restart ${super_name}; exit"
+expect {
+    "(yes/no)?" {send "yes\r"; exp_continue}
+    "*password:" { send "$password\n" }
+}
+interact

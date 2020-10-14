@@ -1,0 +1,215 @@
+syntax = "proto3";
+package msg;
+
+/*--------------------------------------------------------------------客户端消息------------------------------------------------------------*/
+//登陆消息
+message Game_C_TokenLogin {
+    string Token = 1;           //用户token
+    string MachineID = 2;       //机器序列号
+}
+
+//机器人登陆
+message Game_C_RobotLogin {
+    int32 UserID = 1;           //用户ID
+    int32 BatchID = 2;          //机器人批次ID
+}
+
+//用户坐下
+message Game_C_UserSitDown {
+    int32 TableID = 1;          //桌子号
+    int32 ChairID = 2;          //椅子号
+}
+
+//用户起立
+message Game_C_UserStandUp {
+}
+
+//用户准备
+message Game_C_UserPrepare {
+}
+
+//用户取消准备
+message Game_C_UserUnPrepare {
+}
+
+//用户叫分
+message Game_C_UserGrabLandlord {
+    int32 Multiple = 1 ;     //叫分倍数
+}
+
+//用户出牌
+message Game_C_UserCP {
+    repeated int32 Pokers = 1 ;     //出牌
+}
+
+//用户过牌
+message Game_C_UserPass {
+}
+
+//换桌
+message Game_C_ChangeTable {
+}
+
+// 托管
+message Game_C_AutoManage{
+}
+// 取消托管
+message Game_C_UnAutoManage{
+}
+/*--------------------------------------------------------------------服务端消息------------------------------------------------------------*/
+//请求失败
+message Game_S_ReqlyFail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}
+
+//登陆成功
+message Game_S_LoginSuccess {
+    int32 GameStartTime = 1;    	//开始时间单位s
+    int32 GameJFTime = 2;           //叫分持续时间单位s
+    int32 GameCPTime = 3;    	    //出牌持续时间单位s
+    int32 Status = 4;               //是否断线重连
+}
+
+//坐下通知消息
+message Game_S_SitDownNotify {
+    Game_S_User Data = 1;
+}
+
+//起立通知消息
+message Game_S_StandUpNotify {
+    int32 ChairID = 1;
+}
+
+//掉线通知消息
+message Game_S_OffLineNotify {
+    int32 ChairID = 1;
+}
+
+//上线通知消息
+message Game_S_OnLineNotify {
+    int32 ChairID = 1;
+}
+
+//user
+message Game_S_User {
+    int32 UserID = 1; //用户ID
+    string NikeName = 2; //网名
+    float UserGold = 3; //用户金币
+    float UserDiamond = 4;//用户余额
+    int32 MemberOrder = 5; //会员等级
+    string HeadImageUrl = 6; //微信头像url
+    int32 FaceID = 7; //头像ID
+    int32 RoleID = 8; //角色标识
+    int32 SuitID = 9; //套装标识
+    int32 PhotoFrameID = 10;//头像框标识
+    int32 TableID = 11;//桌子号
+    int32 ChairID = 12; //椅子号
+    int32 Status = 13; //用户状态
+    int32 Gender = 14;//性别：0女，1男
+}
+
+//空闲场景
+message Game_S_FreeScene {
+    map<int32,Game_S_User> UserList = 1;//用户列表
+    map<int32,bool> PrepareUserList = 2;     //准备的玩家
+}
+
+//叫分场景
+message Game_S_GrabLandlordScene {
+    sint64 SceneStartTime = 1; //场景开始时间
+    map<int32,Game_S_User> UserList = 2;//用户列表
+    repeated int32 UserPoker = 3;//用户牌（自己的牌）
+    map<int32,int32> UserListGrabLandlord = 4;     //玩家叫分
+    int32 CurrentChairID = 5;//当前叫分玩家
+}
+
+//出牌场景
+message Game_S_PlayScene {
+    sint64 SceneStartTime = 1; //场景开始时间
+    map<int32,Game_S_User> UserList = 2;//用户列表
+    repeated int32 UserPoker = 3;     //用户牌（自己的牌）
+    map<int32,int32> UserListPokerCount = 4;     //玩家牌剩余数量
+    int32 BankerChairID = 6;//地主
+    int32 Multiple = 7;     //地主叫分
+    repeated int32 LandlordPokers = 8;     //地主牌三张
+    int32 SumMultiple = 9 ;     //总倍数
+    int32 CurrentChairID = 10;//当前出牌玩家
+    int32 NearestChairID = 11;//最近出牌用户
+    repeated int32 NearestPokers = 12;//扑克
+    int32 NearestCardType = 13;//牌型
+    repeated int32 PokerCount = 14;//记牌器
+    map<int32,bool> UserListTrusteeship=15;  // 用户托管状态 桌子id  false
+}
+
+//开始游戏
+message Game_S_StartGame {
+    repeated int32 UserPoker = 1;     //用户牌（自己的牌）
+}
+
+//当前用户
+message Game_S_CurrentUser {
+    int32 CurrentChairID = 1;           //当前用户椅子号
+}
+
+// 没人叫分,重新发牌
+message Game_S_GameRestart{
+}
+
+//确定地主开始出牌
+message Game_S_StartCPDetermine {
+     int32 CurrentChairID = 1;//操作用户用户椅子号//地主
+     int32 Multiple = 2;//地主叫分
+     repeated int32 LandlordPokers = 3 ;     //地主牌三张
+}
+//结束游戏消息
+message Game_S_GameConclude {
+    map<int32,float> UserListLoss = 1;//用户盈亏
+    map<int32,float> UserListMoney=2; // 用户金额
+    map<int32, Game_S_HandPoker> UserHandPoker =3; // 用户剩牌 座位号,牌
+    int32 SpringType =4; // 春天类型1,为春天2为反春
+    int32 CurrentMultiple = 5;          //当前倍数
+}
+// 手上剩牌
+message Game_S_HandPoker {
+    repeated int32 Poker = 1;     //用户牌（自己的牌）
+}
+//准备通知
+message Game_S_UserPrepare {
+    int32 ChairID = 1;                  //椅子号
+}
+
+//取消准备通知
+message Game_S_UserUnPrepare {
+    int32 ChairID = 1;                  //椅子号
+}
+
+//叫分通知
+message Game_S_UserGrabLandlord {
+    int32 ChairID = 1;                  //椅子号
+    int32 Multiple = 2;                 //叫分倍数
+}
+
+//用户出牌通知
+message Game_S_UserCP {
+    int32 ChairID = 1;                  //椅子号
+    repeated int32 Pokers = 2;          //出牌
+    int32 PokerType = 3;                //类型
+    int32 CurrentMultiple = 4;          //当前倍数
+    int32 PokerCount=5;                 // 剩余手牌
+}
+
+//用户过牌通知
+message Game_S_UserPass {
+    int32 ChairID = 1;                  //椅子号
+}
+
+// 用户托管通知
+message Game_S_AutoManage{
+    int32 ChairID=1;  // 椅子号
+}
+
+// 用户取消托管通知
+message Game_S_UnAutoManage{
+    int32 ChairID=1;  // 椅子号
+}

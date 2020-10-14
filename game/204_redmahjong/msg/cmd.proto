@@ -1,0 +1,230 @@
+syntax = "proto3";
+package msg;
+
+/*--------------------------------------------------------------------客户端消息------------------------------------------------------------*/
+//登陆消息
+message Game_C_TokenLogin {
+    string Token = 1;           //用户token
+    string MachineID = 2;       //机器序列号
+}
+
+//机器人登陆
+message Game_C_RobotLogin {
+    int32 UserID = 1;           //用户ID
+    int32 BatchID = 2;          //机器人批次ID
+}
+
+//用户坐下
+message Game_C_UserSitDown {
+    int32 TableID = 1;          //桌子号
+    int32 ChairID = 2;          //椅子号
+}
+
+//用户起立
+message Game_C_UserStandUp {
+}
+
+//用户出牌
+message Game_C_UserOutCard {
+    int32 MjData = 1;   //出牌数据
+}
+
+//用户操作
+message Game_C_UserOperate {
+    int32 OperateCode = 1;		//操作掩码
+}
+
+//用户准备
+message Game_C_UserPrepare {
+}
+
+//用户取消准备
+message Game_C_UserUnPrepare {
+}
+
+//用户听牌
+message Game_C_UserTing {
+}
+
+//换桌
+message Game_C_ChangeTable {
+}
+
+// 托管
+message Game_C_AutoManage{
+}
+// 取消托管
+message Game_C_UnAutoManage{
+}
+
+/*--------------------------------------------------------------------服务端消息------------------------------------------------------------*/
+//请求失败
+message Game_S_ReqlyFail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}
+
+//登陆成功
+message Game_S_LoginSuccess {
+    int32 GameStartTime = 1;                //开始时间时间单位s
+    int32 GameOperateTime = 2;              //操作持续时间单位s
+    int32 GameOutCardTime = 3;              //出牌持续时间单位s
+    int32 MaCount = 4;                      //码数
+    int32 Status = 5;                       //是否断线重连
+}
+
+//坐下通知消息
+message Game_S_SitDownNotify {
+    Game_S_User Data = 1;
+}
+
+//起立通知消息
+message Game_S_StandUpNotify {
+    int32 ChairID = 1;
+}
+
+//掉线通知消息
+message Game_S_OffLineNotify {
+    int32 ChairID = 1;
+}
+
+//上线通知消息
+message Game_S_OnLineNotify {
+    int32 ChairID = 1;
+}
+
+//user
+message Game_S_User {
+    int32 UserID = 1; //用户ID
+    string NikeName = 2; //网名
+    float UserGold = 3; //用户金币
+    float UserDiamond = 4;//用户余额
+    int32 MemberOrder = 5; //会员等级
+    string HeadImageUrl = 6; //微信头像url
+    int32 FaceID = 7; //头像ID
+    int32 RoleID = 8; //角色标识
+    int32 SuitID = 9; //套装标识
+    int32 PhotoFrameID = 10;//头像框标识
+    int32 TableID = 11;//桌子号
+    int32 ChairID = 12; //椅子号
+    int32 Status = 13; //用户状态
+    int32 Gender = 14;//性别：0女，1男
+}
+
+message DiskMahjong {
+    int32 Data = 1;
+    int32 Code = 2;
+    int32 ChairID = 3;
+}
+
+//操作牌型
+message DiskMahjongList {
+    repeated DiskMahjong Data = 1;
+}
+
+//key int32 value int32
+message Int32MapInt32 {
+    map<int32, int32> Data = 1;     //麻将数据
+}
+
+//key []int32
+message Int32Array {
+    repeated int32 Data = 1;
+}
+
+//空闲场景
+message Game_S_FreeScene {
+    sint64 SceneStartTime = 1; //场景开始时间
+    map<int32,Game_S_User> UserList = 2;//用户列表
+    map<int32, bool> PrepareUserList = 3;//用户准备
+}
+
+//游戏场景
+message Game_S_PlayScene {
+    int32 SceneStartTime = 1; //场景开始时间
+    map<int32,Game_S_User> UserList = 2;//用户列表
+    map<int32, int32> UserMahjong = 3;//用户麻将
+    map<int32,bool> UserListTrusteeship = 4;//用户托管
+    map<int32,bool> UserListTing = 5;//用户听牌
+    int32 OutMjChairID = 6;//出牌用户
+    int32 CurrentChairID = 7;//当前用户
+    int32 OutMj = 8;//出牌麻将
+    int32 SendMj = 9;//摸牌麻将
+    map<int32,Int32Array> UserListOutCardRecord = 10;//用户出牌记录
+    map<int32,DiskMahjongList> UserListDiskMahjong = 11;//用户桌面记录
+    repeated  int32  UserAction = 12;//当前可操作类型
+    int32 DiskMahjongNum=13; //桌面剩余麻将
+    int32 BankerUser = 14;       //当前庄家
+}
+
+//用户出牌消息
+message Game_S_UserOutCard {
+    int32 ChairID = 1;  //用户椅子号
+    int32 MjData = 2;   //出牌数据
+}
+
+//操作通知
+message Game_S_OperateNotify {
+    repeated int32 Response = 1;		//操作掩码
+}
+
+//用户操作消息
+message Game_S_UserOperate {
+    int32 OperateCode = 1;		//操作掩码
+    int32 OperateMj = 2;		//操作麻将
+    int32 OperateUser = 3;      //操作用户
+    int32 ProvideUser = 4;      //供应用户
+    map<int32,float>  UserListMoney=5; // 用户结算后金额
+    map<int32, float> UserListLoss = 6;  // 用户输赢
+}
+
+//发牌消息
+message Game_S_SendMj {
+    int32 MjData = 1;		    //麻将数据
+    int32 CurrentChairID = 2;   //当前操作玩家
+    bool Tail = 3;				//末尾发牌
+};
+
+//游戏开始
+message Game_S_GameStart {
+    int32 BankerUser = 1;       //当前庄家
+    repeated int32 SiceData = 2;    //骰子数据
+    map<int32, int32> UserMjData = 3;      //用户麻将数据 key 麻将 value 数量
+}
+
+//结束游戏消息
+message Game_S_GameConclude {
+    int32 WinChairID = 1;     // 胜利椅子号
+    int32 ProvideMj = 2;      // 当前摸牌
+    map<int32,Int32MapInt32> UserListMjData = 3;  //玩家麻将数据
+    repeated int32 MaData = 4;  // 加码的牌
+    map<int32, float> UserListLoss = 5;  // 用户输赢
+    map<int32,float>  UserListMoney=6; // 用户结算后的金额
+    int32 SettlementType =7; // 结算类型 1流局，0为正常结算
+    repeated int32 HuType =8; // 胡牌类型: 1、平胡;2、四红中;3、七对;4、天胡;5、地胡;6、抢杠胡;7、杠开;8、癞子胡
+}
+
+//准备通知
+message Game_S_UserPrepare {
+    int32 ChairID = 1;                  //椅子号
+}
+
+//取消准备通知
+message Game_S_UserUnPrepare {
+    int32 ChairID = 1;                  //椅子号
+}
+
+//用户听牌
+message Game_S_UserTing {
+    map<int32,Int32MapInt32> UserMajData=2; // 听牌数据,麻将-->(听的牌->牌数)
+}
+
+// 用户托管通知
+message Game_S_AutoManage{
+    int32 ChairID=1;  // 椅子号
+}
+
+// 用户取消托管通知
+message Game_S_UnAutoManage{
+    int32 ChairID=1;  // 椅子号
+}
