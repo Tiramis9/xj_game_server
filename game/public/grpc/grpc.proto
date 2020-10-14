@@ -1,0 +1,64 @@
+syntax = "proto3";
+package grpc;
+
+service GameGrpc {
+  //金币变动
+  rpc ChangeGold(ChangeReq) returns(ChangeReply) {}
+  //余额变动
+  rpc ChangeDiamond(ChangeReq) returns(ChangeReply) {}
+  //修改库存值
+  rpc ModifyStock(ModifyStockReq) returns(ModifyStockReply) {}
+  //查询库存值
+  rpc QueryStock(QueryStockReq) returns(QueryStockReply) {}
+}
+
+message ChangeReq {
+  int32 UserID = 1;       //用户ID
+  float Score = 2;        //变动积分
+}
+
+message ChangeReply {
+  int32  ErrorCode = 1;
+  string ErrorMsg = 2;
+}
+
+// 游戏配置文件
+message ModifyStockReq {
+  int32   GameID = 1;
+  int32   KindID = 2;
+  string  KindName = 3;
+  string  GameName = 4;
+  int32   SortID = 5;
+  int32   TableCount = 6;
+  int32   ChairCount = 7;
+  float   CellScore = 8;
+  float   RevenueRatio = 9;
+  float   MinEnterScore = 10;
+  int32   DeductionsType = 11;
+
+  float   StoresDecay = 12;
+  float   StartStores = 13;
+  float   StartWinRate = 14;
+  float   Threshold1 = 15;
+  float   WinRate1 = 16;
+  float   Threshold2 = 17;
+  float   WinRate2 = 18;
+  float   Threshold3 = 19;
+  float   WinRate3 = 20;
+  float   Threshold4 = 21;
+  float   WinRate4 = 22;
+  float   Threshold5 = 23;
+  float   WinRate5 = 24;
+  int32   RoomSwitch = 25; // 房间开关 0 关 1开 2 维护
+  float   BBORatio = 26;   // 暗控比例
+}
+
+message ModifyStockReply {
+}
+
+message QueryStockReq {
+}
+
+message QueryStockReply {
+  float NowStores = 1;        //当前库存值
+}
