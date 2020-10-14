@@ -1,0 +1,72 @@
+syntax = "proto3";
+package msg;
+
+/*-------------------------------------------------------客户端消息----------------------------------------------------*/
+//微信登陆
+message Login_C_Wechat {
+    int32 AgentID = 1;          //邀请人id
+    string UserUin = 2;         //微信uid
+    int32 Gender = 3;            //性别 0女 1男
+    string NikeName = 4;        //网名
+    string HeadImageUrl = 5;    //头像url
+    string MachineID = 6;       //机器序列号
+    int32 DeviceType = 7;       //机器设备类型
+}
+
+//手机号码登陆
+message Login_C_Mobile {
+    string PhoneNumber = 1;     //手机号码
+    string Password = 2;        //密码
+    string MachineID = 3;       //机器序列号
+    int32 DeviceType = 4;       //机器设备类型
+}
+
+//游客登陆
+message Login_C_Visitor {
+    string MachineID = 1;           //机器序列号
+    int32 DeviceType = 2;       //机器设备类型
+}
+
+
+
+/*-------------------------------------------------------服务端消息----------------------------------------------------*/
+message GameInfo {
+    int32 GameID = 1;           //游戏ID
+    int32 KindID = 2;           //游戏种类编号
+    string ServerAddr = 3;	    //服务器地址
+    string WsAddr = 4;	        //websocket服务器地址
+    string GameName = 5;        //游戏名
+    int32 SortID = 6;           //排序id
+    int32 TableCount = 7;     	//桌子数量
+    int32 ChairCount = 8;      	//椅子数量
+    float CellScore = 9;    	//游戏底分
+    float RevenueRatio = 10;  	//税收比例
+    float MinEnterScore = 11; 	//最低进入积分
+    int32 DeductionsType = 12;  //扣费类型
+}
+
+//登陆成功
+message Login_S_Success {
+    int32 UserID = 1;                       //用户id
+    string NikeName = 2;                    //用户昵称
+    float UserGold = 3;                     //用户金币
+    float UserDiamonds = 4;                 //用户余额
+    int32 MemberOrder = 5;                  //会员等级
+    string PhoneNumber = 6;                 //手机号码
+    string BinderCardNo = 7;                //银行卡
+    int32 FaceID = 8;                       //头像id
+    int32 RoleID = 9;       			    //角色标识
+    int32 SuitID = 10; 		        	    //套装标识
+    int32 PhotoFrameID = 11;	            //头像框标识
+    int32 Gender = 12;	                    //性别：0女，1男
+    int32 KindID = 13;	                    //游戏kindID
+    int32 GameID = 14;	                    //游戏GameID
+    string Token = 15;                      //token令牌
+    repeated GameInfo GameInfoList = 16;    //游戏列表
+}
+
+//登陆失败
+message Login_S_Fail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}

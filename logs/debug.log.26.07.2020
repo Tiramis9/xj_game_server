@@ -1,0 +1,172 @@
+[Debug] [17:13:44] [handler.go.315] del to d UserID 21253
+[Debug] [17:13:44] [handler.go.315] del to d UserID 21254
+[Debug] [17:13:44] [handler.go.315] del to d UserID 21255
+[Debug] [17:13:44] [handler.go.315] del to d UserID 21240
+[Debug] [17:13:44] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:0,桌子数:4
+[Debug] [17:13:47] [table.go.257] tableId:0,机器人人数:0,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [17:13:47] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [17:13:47] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21253,rand 人数:4
+[Debug] [17:13:47] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [17:13:47] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21254,rand 人数:4
+[Debug] [17:13:47] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21240,rand 人数:4
+[Debug] [17:13:47] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [17:14:41] [handler.go.315] del to d UserID 21253
+[Debug] [17:14:41] [handler.go.315] del to d UserID 21240
+[Debug] [17:14:41] [handler.go.315] del to d UserID 21254
+[Debug] [17:14:41] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:0,桌子数:4
+[Debug] [17:14:43] [table.go.257] tableId:0,机器人人数:0,匹配队列真人人数:1,,需要匹配机器人:2,rand:3
+[Debug] [17:14:44] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:2,rand:3
+[Debug] [17:14:44] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:3
+[Debug] [17:14:44] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21240,rand 人数:3
+[Debug] [17:14:44] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21253,rand 人数:3
+[Debug] [17:14:44] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:3
+[Debug] [17:15:38] [handler.go.315] del to d UserID 21253
+[Debug] [17:15:38] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:0,桌子数:4
+[Debug] [17:15:40] [table.go.257] tableId:0,机器人人数:0,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [17:15:40] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [17:15:40] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21254,rand 人数:4
+[Debug] [17:15:40] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21255,rand 人数:4
+[Debug] [17:15:40] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [17:15:40] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21253,rand 人数:4
+[Debug] [17:15:40] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [17:16:34] [handler.go.315] del to d UserID 21255
+[Debug] [17:16:34] [handler.go.315] del to d UserID 21254
+[Debug] [17:16:34] [handler.go.315] del to d UserID 21253
+[Debug] [21:11:32] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:0,桌子数:4
+[Debug] [21:11:34] [table.go.257] tableId:0,机器人人数:0,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:11:34] [table.go.257] tableId:0,机器人人数:4,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:11:34] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:5
+[Debug] [21:11:34] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21256,rand 人数:5
+[Debug] [21:11:34] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21255,rand 人数:5
+[Debug] [21:11:35] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21254,rand 人数:5
+[Debug] [21:11:35] [table.go.1348] OnActionUserSitDown tableID:0 人数:5,gameStatus:0,uid:21253,rand 人数:5
+[Debug] [21:11:35] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:5
+[Debug] [21:12:29] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:12:32] [handler.go.315] del to  UserID 21253
+[Debug] [21:12:32] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:2,rand:3
+[Debug] [21:12:32] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:3
+[Debug] [21:12:32] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21254,rand 人数:3
+[Debug] [21:12:32] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21255,rand 人数:3
+[Debug] [21:12:32] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:3
+[Debug] [21:13:26] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:2,桌子数:4
+[Debug] [21:13:29] [handler.go.315] del to  UserID 21254
+[Debug] [21:13:29] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:13:29] [handler.go.315] del to  UserID 21255
+[Debug] [21:13:29] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:13:29] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:13:29] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:13:29] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21254,rand 人数:4
+[Debug] [21:13:29] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21253,rand 人数:4
+[Debug] [21:13:29] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21257,rand 人数:4
+[Debug] [21:13:29] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:13:29] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:13:30] [handler.go.315] del to  UserID 21255
+[Debug] [21:14:24] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:2,桌子数:4
+[Debug] [21:14:25] [handler.go.315] del to  UserID 21257
+[Debug] [21:14:25] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:14:25] [handler.go.315] del to  UserID 21254
+[Debug] [21:14:25] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:14:25] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:14:25] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:14:25] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21257,rand 人数:4
+[Debug] [21:14:25] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21255,rand 人数:4
+[Debug] [21:14:25] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:14:25] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21254,rand 人数:4
+[Debug] [21:14:25] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:15:19] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:15:21] [handler.go.315] del to  UserID 21255
+[Debug] [21:15:21] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:15:21] [handler.go.315] del to  UserID 21257
+[Debug] [21:15:21] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:15:21] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:15:21] [table.go.257] tableId:0,机器人人数:4,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:15:21] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:15:21] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21257,rand 人数:4
+[Debug] [21:15:21] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21255,rand 人数:4
+[Debug] [21:15:21] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21258,rand 人数:4
+[Debug] [21:15:21] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:16:15] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:16:18] [handler.go.315] del to  UserID 21257
+[Debug] [21:16:18] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:2,rand:3
+[Debug] [21:16:19] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21260,rand 人数:3
+[Debug] [21:16:19] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21259,rand 人数:3
+[Debug] [21:16:19] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:1000001,rand 人数:3
+[Debug] [21:16:19] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:3
+[Debug] [21:17:11] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:2,桌子数:4
+[Debug] [21:17:13] [handler.go.315] del to  UserID 21259
+[Debug] [21:17:13] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:17:13] [handler.go.315] del to  UserID 21260
+[Debug] [21:17:13] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:17:13] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:17:13] [table.go.257] tableId:0,机器人人数:4,匹配队列真人人数:1,,需要匹配机器人:4,rand:5
+[Debug] [21:17:13] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:5
+[Debug] [21:17:13] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21257,rand 人数:5
+[Debug] [21:17:13] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21261,rand 人数:5
+[Debug] [21:17:13] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21259,rand 人数:5
+[Debug] [21:17:13] [table.go.1348] OnActionUserSitDown tableID:0 人数:5,gameStatus:0,uid:21262,rand 人数:5
+[Debug] [21:17:13] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:5
+[Debug] [21:17:16] [handler.go.315] del to  UserID 21260
+[Debug] [21:18:07] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:2,桌子数:4
+[Debug] [21:18:10] [handler.go.315] del to  UserID 21259
+[Debug] [21:18:10] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:18:10] [handler.go.315] del to  UserID 21262
+[Debug] [21:18:10] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:18:10] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:18:10] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:18:10] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:18:10] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21259,rand 人数:4
+[Debug] [21:18:10] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21260,rand 人数:4
+[Debug] [21:18:10] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21263,rand 人数:4
+[Debug] [21:18:10] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:18:12] [handler.go.315] del to  UserID 21262
+[Debug] [21:19:05] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:19:06] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:19:06] [handler.go.315] del to  UserID 21260
+[Debug] [21:19:06] [handler.go.315] del to  UserID 21263
+[Debug] [21:19:06] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:19:06] [handler.go.315] del to  UserID 21259
+[Debug] [21:19:06] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:19:06] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21263,rand 人数:4
+[Debug] [21:19:06] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:19:06] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21262,rand 人数:4
+[Debug] [21:19:06] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21260,rand 人数:4
+[Debug] [21:19:06] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:20:00] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:20:02] [handler.go.315] del to  UserID 21260
+[Debug] [21:20:02] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:02] [handler.go.315] del to  UserID 21263
+[Debug] [21:20:02] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:02] [handler.go.315] del to  UserID 21262
+[Debug] [21:20:02] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:02] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21263,rand 人数:4
+[Debug] [21:20:02] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21259,rand 人数:4
+[Debug] [21:20:02] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21260,rand 人数:4
+[Debug] [21:20:02] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:20:02] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:20:56] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:3,桌子数:4
+[Debug] [21:20:58] [handler.go.315] del to  UserID 21259
+[Debug] [21:20:58] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:59] [handler.go.315] del to  UserID 21260
+[Debug] [21:20:59] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:59] [handler.go.315] del to  UserID 21263
+[Debug] [21:20:59] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:20:59] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21260,rand 人数:4
+[Debug] [21:20:59] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:21262,rand 人数:4
+[Debug] [21:20:59] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:20:59] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21259,rand 人数:4
+[Debug] [21:20:59] [table.go.677] Game_S_SitDownNotify 桌子号:0,坐下通知：1000001,人数:4
+[Debug] [21:21:53] [table.go.165] ADDQueueInfo--用户坐下,加入匹配队列 uid:1000001,queuePoolCount:0,robotCount:2,桌子数:4
+[Debug] [21:21:54] [handler.go.315] del to  UserID 21260
+[Debug] [21:21:54] [table.go.257] tableId:0,机器人人数:1,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:21:54] [handler.go.315] del to  UserID 21262
+[Debug] [21:21:54] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:21:54] [table.go.257] tableId:0,机器人人数:2,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:21:54] [table.go.257] tableId:0,机器人人数:3,匹配队列真人人数:1,,需要匹配机器人:3,rand:4
+[Debug] [21:21:54] [table.go.1348] OnActionUserSitDown tableID:0 人数:1,gameStatus:0,uid:21263,rand 人数:4
+[Debug] [21:21:54] [table.go.1348] OnActionUserSitDown tableID:0 人数:3,gameStatus:0,uid:21264,rand 人数:4
+[Debug] [21:21:54] [table.go.1348] OnActionUserSitDown tableID:0 人数:2,gameStatus:0,uid:1000001,rand 人数:4
+[Debug] [21:21:54] [table.go.1348] OnActionUserSitDown tableID:0 人数:4,gameStatus:0,uid:21260,rand 人数:4
+[Debug] [21:21:58] [handler.go.315] del to  UserID 21262
+[Debug] [21:22:38] [handler.go.315] del to  UserID 21260
+[Debug] [21:22:38] [handler.go.315] del to  UserID 21264
+[Debug] [21:22:38] [handler.go.315] del to  UserID 21263
