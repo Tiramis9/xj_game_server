@@ -1,0 +1,20 @@
+# 服务端监听配置
+service:
+  service:
+    server_url: 47.107.188.43:2050
+    tcp_url: :2050
+    max_conn_num: 20000
+    kind_id: 205
+    game_id: 47
+    grpc_addr: 192.168.0.105:20580
+    grpc_url: :20580
+    heartbeat_time: 60
+  game_zb_time: 10
+  game_cp_time: 15
+  good_pocker: 50
+  jetton_list: [2,5,10,20,50,100]
+  ws_addr:
+  cert_file:
+  key_file:
+  console_port:
+  profile_path:

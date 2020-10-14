@@ -1,0 +1,22 @@
+# 服务端监听配置
+service:
+  service:
+    server_url: 192.168.0.105:20480
+    tcp_url: :20480
+    max_conn_num: 20000
+    kind_id: 204
+    game_id: 55
+    ws_url: 192.168.0.105:20481
+    ws_addr: :20481
+    grpc_addr: 192.168.0.105:20482
+    grpc_url: :20482
+    heartbeat_time: 60
+  game_start_time: 20  # 开始时间时间单位s
+  game_out_card_time: 20 # 出牌持续时间单位s
+  game_operate_time: 10  # 操作持续时间单位s
+  ma_count: 8   # 码数
+  ws_addr:
+  cert_file:
+  key_file:
+  console_port:
+  profile_path:

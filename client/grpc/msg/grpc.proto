@@ -1,0 +1,51 @@
+syntax = "proto3";
+package grpc;
+
+service GameGrpc {
+    //金币变动
+    rpc ChangeGold(ChangeReq) returns(ChangeReply) {}
+    //余额变动
+    rpc ChangeDiamond(ChangeReq) returns(ChangeReply) {}
+    //修改库存值
+    rpc ModifyStock(ModifyStockReq) returns(ModifyStockReply) {}
+    //查询库存值
+    rpc QueryStock(QueryStockReq) returns(QueryStockReply) {}
+}
+
+message ChangeReq {
+    int32 UserID = 1;       //用户ID
+    float Score = 2;        //变动积分
+}
+
+message ChangeReply {
+    int32 ErrorCode = 1;
+    string ErrorMsg = 2;
+}
+
+message ModifyStockReq {
+    int32 KindID  = 1;
+    int32 GameID = 2;
+    float StoresDecay = 3;      //库存衰减比例
+    float StartStores = 4;      //库存值
+    float StartWinRate = 5;	    //起始胜率
+    float Threshold1 = 6;
+    float WinRate1 = 7;
+    float Threshold2 = 8;
+    float WinRate2 = 9;
+    float Threshold3 = 10;
+    float WinRate3 = 11;
+    float Threshold4 = 12;
+    float WinRate4 = 13;
+    float Threshold5 = 14;
+    float WinRate5 = 15;
+}
+
+message ModifyStockReply {
+}
+
+message QueryStockReq {
+}
+
+message QueryStockReply {
+    float NowStores = 1;        //当前库存值
+}

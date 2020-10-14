@@ -1,0 +1,67 @@
+# log配置
+log:
+  path: /../conf/log.xml
+
+# 数据库配置1
+db_account:
+  dialect: mysql
+  host: 127.0.0.1:3306
+  user: root
+  pass: 123456
+  db: xjaccountsdb
+  max_open_connections: 20
+  max_idle_connections: 10
+  enable_log: false
+
+# 数据库配置2
+db_treasure:
+  dialect: mysql
+  host: 127.0.0.1:3306
+  user: root
+  pass: 123456
+  db: xjtreasuredb
+  max_open_connections: 20
+  max_idle_connections: 10
+  enable_log: false
+
+# 数据库配置3
+db_platform:
+  dialect: mysql
+  host: 127.0.0.1:3306
+  user: root
+  pass: 123456
+  db: xjplatformdb
+  max_open_connections: 20
+  max_idle_connections: 10
+  enable_log: false
+
+# 数据库配置4
+db_record:
+  dialect: mysql
+  host: 127.0.0.1:3306
+  user: root
+  pass: 123456
+  db: xjrecorddb
+  max_open_connections: 20
+  max_idle_connections: 10
+  enable_log: false
+
+# 数据库配置5(新)
+xj_game_db:
+  dialect: mysql
+  host: 127.0.0.1:3306
+  user: root
+  pass: 123456
+  db: xj_game_db
+  max_open_connections: 20
+  max_idle_connections: 10
+  enable_log: true
+
+# redis uJREJW9DNIk2H3I96ayz
+redis:
+  host: 127.0.0.1:6379
+  pass:
+  db: 0
+
+
+

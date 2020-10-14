@@ -1,0 +1,180 @@
+syntax = "proto3";
+package msg;
+
+/*--------------------------------------------------------------------客户端消息------------------------------------------------------------*/
+//登陆消息
+message Game_C_TokenLogin {
+    string Token = 1;           //用户token
+    string MachineID = 2;       //机器序列号
+}
+
+//机器人登陆
+message Game_C_RobotLogin {
+    int32 UserID = 1;           //用户ID
+    int32 BatchID = 2;          //机器人批次ID
+}
+
+//用户坐下
+message Game_C_UserSitDown {
+    int32 TableID = 1;          //桌子号
+    int32 ChairID = 2;          //椅子号
+}
+
+//用户起立
+message Game_C_UserStandUp {
+}
+
+//用户开炮
+message Game_C_UserFire {
+    int32 BulletType = 1;       //子弹类型
+    int32 BulletAngle = 2;      //子弹角度
+}
+
+//捕获消息
+message Game_C_CatchFish {
+    int32 BulletID = 1;         //子弹id
+    int32 FishID = 2;           //鱼id
+}
+
+//用户变炮
+message Game_C_ChangeBullet {
+    int32 BulletType = 1;       //子弹类型
+}
+
+//用户锁定
+message Game_C_LockFish {
+    int32 FishID = 1;           //鱼id
+}
+
+/*--------------------------------------------------------------------服务端消息------------------------------------------------------------*/
+//user
+message Game_S_User {
+    int32 UserID = 1; //用户ID
+    string NikeName = 2; //网名
+    float UserGold = 3; //用户金币
+    float UserDiamond = 4;//用户余额
+    int32 MemberOrder = 5; //会员等级
+    string HeadImageUrl = 6; //微信头像url
+    int32 FaceID = 7; //头像ID
+    int32 RoleID = 8; //角色标识
+    int32 SuitID = 9; //套装标识
+    int32 PhotoFrameID = 10;//头像框标识
+    int32 TableID = 11;//桌子号
+    int32 ChairID = 12; //椅子号
+    int32 Status = 13; //用户状态
+}
+
+//请求失败
+message Game_S_ReqlyFail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}
+
+//key []int32
+message Int32Array {
+    repeated int32 Data = 1;
+}
+
+//登陆成功
+message Game_S_LoginSuccess {
+    repeated int32 BulletList = 1;      //子弹列表
+    repeated Int32Array FishListMultiple = 2;   //鱼倍数
+    int32 Status = 3;                //是否断线重连
+}
+
+//起立通知消息
+message Game_S_StandUpNotify {
+    int32 ChairID = 1;
+}
+
+//掉线通知消息
+message Game_S_OffLineNotify {
+    int32 ChairID = 1;
+}
+
+//上线通知消息
+message Game_S_OnLineNotify {
+    Game_S_User UserInfo =1; // 用户信息
+}
+
+//空闲场景消息
+message Game_S_FreeScene {
+    int32 ChairID = 1;
+}
+
+//鱼
+message Fish {
+    int32 FishType = 1;             //鱼类型
+    int32 PathID = 2;               //路线id
+    int32 MakeTime = 3;             //生成时间
+}
+
+//游戏场景消息
+message Game_S_PlayScene {
+    int32 ChairID = 1;                          //用户椅子号
+    map<int32, Game_S_User> UserList = 2;       //用户列表
+    map<int32, int32> BulletType = 3;           //用户炮台类型
+    map<int32, Fish> FishPool = 4;              //鱼池
+    map<int32,int32> LockFish=5;                // 锁定鱼 椅子号->鱼id
+}
+
+//鱼群场景消息
+message Game_S_GroupFishScene {
+    int32 ChairID = 1;                          //用户椅子号
+    map<int32, Game_S_User> UserList = 2;       //用户列表
+    map<int32, int32> BulletType = 3;           //用户炮台类型
+    Game_S_GroupFish GroupFish=4;               // 鱼群消息
+    map<int32,int32> LockFish=5;                // 锁定鱼 椅子号->鱼id
+}
+
+//用户开炮
+message Game_S_UserFire {
+    int32 ChairID = 1;          //用户椅子号
+    int32 BulletID = 2;         //子弹id
+    int32 BulletType = 3;       //子弹类型
+    int32 BulletAngle = 4;      //子弹角度
+    float UserMoney=5;          // 用户的金额
+    int32 LockFish=6;           // 锁定鱼 0不锁定，1锁定
+}
+
+//捕获消息
+message Game_S_CatchFish {
+    int32 ChairID = 1;          //用户椅子号
+    int32 FishID = 3;           //鱼id
+    int32 FishMultiple = 4;     //鱼的倍数
+    float FishScore = 5;        //鱼中奖积分
+    float UserMoney=6;         // 用户的金额
+}
+
+//用户变炮
+message Game_S_ChangeBullet {
+    int32 ChairID = 1;          //用户椅子号
+    int32 BulletType = 2;       //子弹类型
+}
+
+//用户锁定
+message Game_S_LockFish {
+    int32 ChairID = 1;          //椅子号
+    int32 FishID = 2;           //鱼id
+}
+
+//生成鱼消息
+message Game_S_MakeFish {
+    int32 FishID = 1;           //鱼id
+    int32 FishType = 2;         //鱼类型
+    int32 PathID = 3;           //路径id
+    int32 MakeTime=4;          // 鱼的生命周期时间
+}
+
+// 生成鱼消息列表
+message Game_S_FishList{
+    repeated  Game_S_MakeFish FishList=1; // 鱼列表
+}
+
+//鱼群消息
+message Game_S_GroupFish {
+    int32 GroupFishID = 1;                      //鱼群id
+    int64 DurationTime = 2;                        //鱼群持续时间
+    repeated  Game_S_MakeFish FishList =3;      // 鱼池
+    int32 StartFishID=4;                        //鱼群起始id
+}

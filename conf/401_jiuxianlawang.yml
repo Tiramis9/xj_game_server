@@ -1,0 +1,18 @@
+# 服务端监听配置
+service:
+  service:
+    server_url: 192.168.0.105:41180
+    tcp_url: :41180
+    max_conn_num: 20000
+    kind_id: 401
+    game_id: 36
+    ws_url: 192.168.0.105:41181
+    ws_addr: :41181
+    grpc_addr: 192.168.0.105:41182
+    grpc_url: :41182
+    heartbeat_time: 60
+  ws_addr:
+  cert_file:
+  key_file:
+  console_port:
+  profile_path:

@@ -1,0 +1,21 @@
+# 服务端监听配置
+service:
+  service:
+    server_url: 192.168.0.105:10380
+    tcp_url: :10380
+    max_conn_num: 20000
+    ws_url: 192.168.0.105:10381
+    ws_addr: :10381
+    kind_id: 103
+    game_id: 10
+    grpc_addr: 192.168.0.105:10382
+    grpc_url: :10382
+    heartbeat_time: 60
+  game_jetton_time: 20
+  game_lottery_time: 15
+  jetton_list: [1,2,5,10,20]
+  ws_addr:
+  cert_file:
+  key_file:
+  console_port:
+  profile_path:

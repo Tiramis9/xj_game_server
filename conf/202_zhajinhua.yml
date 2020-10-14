@@ -1,0 +1,22 @@
+# 服务端监听配置
+service:
+  service:
+    server_url: 192.168.0.105:22280
+    tcp_url: :22280
+    max_conn_num: 20000
+    kind_id: 202
+    game_id: 25
+    ws_url: 192.168.0.105:22281
+    ws_addr: :22281
+    grpc_addr: 192.168.0.105:22282
+    grpc_url: :22282
+    heartbeat_time: 60
+  game_jetton_time: 10
+  game_start_time: 20
+  jetton_list: [5,10,15,20]
+  goog_pocker: 50
+  ws_addr:
+  cert_file:
+  key_file:
+  console_port:
+  profile_path:

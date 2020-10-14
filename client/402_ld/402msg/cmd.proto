@@ -1,0 +1,84 @@
+syntax = "proto3";
+package msg;
+
+/*--------------------------------------------------------------------客户端消息------------------------------------------------------------*/
+//登陆消息
+message Game_C_TokenLogin {
+    string Token = 1;           //用户token
+    string MachineID = 2;       //机器序列号
+}
+
+//用户起立
+message Game_C_UserStandUp {
+}
+
+//用户下注
+message Game_C_UserJetton {
+    map<int32,float> JettonAreaAndSocre = 1;//下注区域--下注数目
+}
+
+//比较大小
+message Game_C_UserCompare {
+    int32 JettonArea = 1;   //区域 大或者小  1 是大 2 是小
+    float JettonSocre = 2; // 金币或者砖石
+}
+
+//获取用户列表 分页
+message Game_C_UserList {
+    int32 Page = 1;   //页码
+    int32 Size = 2;   //每页多少数据
+}
+
+/*--------------------------------------------------------------------服务端消息------------------------------------------------------------*/
+//请求失败
+message Game_S_ReqlyFail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}
+
+//登陆成功
+message Game_S_LoginSuccess {
+    int32 TableID = 1;                  //桌子id
+}
+
+//铃铛结果
+message Game_S_GameResult {
+    repeated int32  LotteryResults = 1; //开奖水果
+    repeated float WinArea = 2;//输赢区域
+    float UserGoldCoin = 3;//用户金币
+}
+
+// 比大小结果
+message Game_S_CompareResult {
+    int32  LotteryResults = 1; //开奖结果
+    float UserGoldCoin = 2;//用户金币
+}
+
+//user
+message Game_S_User {
+    int32 UserID = 1; //用户ID
+    string NikeName = 2; //网名
+    float UserGold = 3; //用户金币
+    float UserDiamond = 4;//用户余额
+    int32 MemberOrder = 5; //会员等级
+    string HeadImageUrl = 6; //微信头像url
+    int32 FaceID = 7; //头像ID
+    int32 RoleID = 8; //角色标识
+    int32 SuitID = 9; //套装标识
+    int32 PhotoFrameID = 10;//头像框标识
+    int32 TableID = 11;//桌子号
+    int32 ChairID = 12; //椅子号
+    int32 Status = 13; //用户状态
+    int32 Gender = 14;// 性别
+}
+
+
+// 返回用户列表数据
+message Game_S_UserList {
+    repeated Game_S_TempUser Data = 1;//用户列表
+}
+message Game_S_TempUser {
+     Game_S_User User = 1; //用户信息
+}
+
+

@@ -1,0 +1,7 @@
+# 服务端监听配置
+service:
+  server_url: 192.168.1.5:8000
+  tcp_url: :8000
+  ws_url: 192.168.1.5:8001
+  ws_addr: :8001
+  max_conn_num: 20000

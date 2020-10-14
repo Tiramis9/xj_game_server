@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package msg;
+
+/*-------------------------------------------------------客户端消息----------------------------------------------------*/
+
+message Hall_C_Msg {
+  string  Token = 1;
+}
+
+
+/*-------------------------------------------------------服务端消息----------------------------------------------------*/
+
+message GameInfo {
+  int32 GameID = 1;           //游戏ID
+  int32 KindID = 2;           //游戏种类编号
+  string ServerAddr = 3;      //服务器地址
+  string WsAddr = 4;          //websocket服务器地址
+  string GameName = 5;        //游戏名
+  int32 SortID = 6;           //排序id
+  int32 TableCount = 7;      //桌子数量
+  int32 ChairCount = 8;        //椅子数量
+  float CellScore = 9;      //游戏底分
+  float RevenueRatio = 10;    //税收比例
+  float MinEnterScore = 11;  //最低进入积分
+  int32 DeductionsType = 12;  //扣费类型
+}
+
+message Announcement {
+  int32 NewsID = 1; //公告标识
+  string Subject = 2;//公告标题
+  string Body = 3;//公告内容
+  string FormattedBody = 4;//带格式公告内容
+  int32 ClassID = 5; //公告类别1 新闻公告，2 跑马灯
+}
+
+//成功+心跳
+message Hall_S_Msg {
+  int32 UserID = 1;                       //用户id
+  string NikeName = 2;                    //用户昵称
+  int32 MemberOrder = 3;                  //会员等级
+  string PhoneNumber = 4;                 //手机号码
+  string BinderCardNo = 5;                //银行卡
+  int32 FaceID = 6;                       //头像id
+  int32 RoleID = 7;                //角色标识
+  int32 SuitID = 8;                  //套装标识
+  int32 PhotoFrameID = 9;              //头像框标识
+  int32 Gender = 10;                      //性别：0女，1男xww
+  int64 TimeStamp = 11;                   //时间戳
+  repeated Announcement AnnouncementList = 12;//公告列表
+  repeated GameInfo GameInfoList = 13;    //游戏列表
+  repeated VersionInfo VersionInfos = 14;//版本列表
+  float UserGold = 15;                     //用户金币
+  float UserDiamonds = 16;                 //用户余额
+}
+
+// 版本信息 xjplatformdb.GameVersion
+message VersionInfo{
+  int32 Version = 1; //版本
+  string PokerName = 2;// 游戏名
+}
+//充值通知
+message Hall_Recharge_Notice {
+  float UserGold = 1;                     //用户金币
+  float UserDiamonds = 2;                 //用户余额
+}
+
+
+
+//失败
+message Hall_S_Fail {
+  int32 ErrorCode = 1;        //错误代码
+  string ErrorMsg = 2;        //错误描述
+}
