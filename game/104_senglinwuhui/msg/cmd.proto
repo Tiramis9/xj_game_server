@@ -1,0 +1,175 @@
+syntax = "proto3";
+package msg;
+
+/*--------------------------------------------------------------------客户端消息------------------------------------------------------------*/
+//登陆消息
+message Game_C_TokenLogin {
+    string Token = 1;           //用户token
+    string MachineID = 2;       //机器序列号
+}
+
+//机器人登陆
+message Game_C_RobotLogin {
+    int32 UserID = 1;           //用户ID
+    int32 BatchID = 2;          //机器人批次ID
+}
+
+//用户坐下
+message Game_C_UserSitDown {
+    int32 TableID = 1;          //桌子号
+    int32 ChairID = 2;          //椅子号
+}
+
+//用户起立
+message Game_C_UserStandUp {
+}
+
+//用户下注
+message Game_C_UserJetton {
+    int32 JettonArea = 1;               //下注区域
+    float JettonScore = 2;              //下注数目
+}
+
+//获取用户列表 分页
+message Game_C_UserList {
+    int32 Page = 1;   //页码
+    int32 Size = 2;   //每页多少数据
+}
+
+/*--------------------------------------------------------------------服务端消息------------------------------------------------------------*/
+//请求失败
+message Game_S_ReqlyFail {
+    int32 ErrorCode = 1;        //错误代码
+    string ErrorMsg = 2;        //错误描述
+}
+
+//登陆成功
+message Game_S_LoginSuccess {
+    int32 GameJettonTime = 1;    	    //下注持续时间单位s
+    int32 GameLotteryTime = 2;			 //开奖持续时间单位s
+    repeated float JettonList = 3;       //筹码选项列表
+    int32 Status = 4;                    //是否断线重连 1,普通登录 2,断线重连
+}
+
+
+//开始游戏消息
+message Game_S_GameStart {
+    repeated Game_S_User Data = 1;
+    repeated int32  RandomColor = 2; //颜色数组
+    int64 SceneStartTime = 3;//游戏开始时间戳
+}
+
+//user
+message Game_S_User {
+    int32 UserID = 1; //用户ID
+    string NikeName = 2; //网名
+    float UserGold = 3; //用户金币
+    float UserDiamond = 4;//用户余额
+    int32 MemberOrder = 5; //会员等级
+    string HeadImageUrl = 6; //微信头像url
+    int32 FaceID = 7; //头像ID
+    int32 RoleID = 8; //角色标识
+    int32 SuitID = 9; //套装标识
+    int32 PhotoFrameID = 10;//头像框标识
+    int32 TableID = 11;//桌子号
+    int32 ChairID = 12; //椅子号
+    int32 Status = 13; //用户状态
+    int32 Gender = 14;//性别：0女，1男
+}
+
+//结束游戏消息
+message Game_S_GameConclude {
+    int32  LotteryPoker = 1; //开奖扑克
+    int32  LotterySpecial = 2; //特殊开奖号码
+    repeated bool WinArea = 3;//输赢区域
+    map<int32,float> UserListLoss = 4;//桌面用户盈亏
+    int32 ColorIndex = 5;//开奖颜色下标
+    map<int32,float>  UserListMoney=6; // 用户金额
+}
+
+
+
+//下注场景消息
+message Game_S_JettonScene {
+    int64 SceneStartTime = 1;//场景开始时间
+    int32 UserChairID = 2; //用户椅子号
+    repeated Game_S_User UserList = 3;//桌面用户
+    repeated int32 LotteryRecord = 4;//开奖记录 最近20局
+    repeated int32 LotterySpecialRecord = 5;//特殊开奖记录 最近20局
+    repeated Game_C_AreaJetton UserArraJetton = 6;//下注区域,总下注数
+    repeated Game_C_AreaJetton UserJetton = 7;//玩家下注数
+    int32 UserCount = 8;                // 玩家数量
+    repeated int32  RandomColor = 9; //颜色数组
+    repeated float JettonList = 14; //筹码选项列表
+}
+// 下注结构体
+message Game_C_AreaJetton {
+   int32  Area  =1;    //下注区域
+   float Jetton =2;  //下注金额
+}
+
+
+//当前下注状况,每个区域,每个玩家的下注情况
+message Game_S_AreaJetton {
+    int32 TableID = 1;         //桌子号
+    repeated Game_C_AreaJetton UserArraJetton = 2;//下注区域,总下注数
+    int32 UserCount = 3;                // 玩家数量
+}
+
+//开奖场景消息
+message Game_S_LotteryScene {
+    int64 SceneStartTime = 1;//场景开始时间
+    int32 UserChairID = 2; //用户椅子号
+    repeated Game_S_User UserList = 3;//桌面用户
+    repeated int32 LotteryRecord = 4;//开奖记录 最近20局
+    repeated int32 LotterySpecialRecord = 5;//特殊开奖记录 最近20局
+    repeated Game_C_AreaJetton UserArraJetton = 6;//下注区域,总下注数
+    int32  LotteryPoker = 7; //开奖扑克
+    repeated int32  RandomColor = 8; //颜色数组
+    int32  LotterySpecial = 9; //特殊开奖号码
+    repeated bool WinArea = 10;//输赢区域
+    int32 UserCount = 11;                // 玩家数量
+    repeated float JettonList = 12; //筹码选项列表
+    int32 ColorIndex = 13;//开奖颜色下标
+}
+
+//坐下通知消息
+message Game_S_SitDownNotify {
+    int32 UserChairID = 1; //用户椅子号
+    Game_S_User User = 2; //用户信息
+}
+
+//起立通知消息
+message Game_S_StandUpNotify {
+    int32 ChairID = 1;
+}
+
+//掉线通知消息
+message Game_S_OffLineNotify {
+    int32 ChairID = 1;
+}
+
+//上线通知消息
+message Game_S_OnLineNotify {
+    int32 ChairID = 1;
+}
+
+// 下注通知
+message Game_S_UserJetton {
+    int32 ChairID = 1;                  //椅子号
+    int32 JettonArea = 2;               //下注区域
+    float JettonScore = 3;              //下注数目
+}
+
+// 返回用户列表数据
+message Game_S_UserList {
+    repeated Game_S_TempUser Data = 1;//用户列表
+}
+
+message Game_S_TempUser {
+     Game_S_User User = 1; //用户信息
+     float TotalJetton = 2;//总下注数
+     int32 TotalWin = 3;//赢多少局
+}
+
+
